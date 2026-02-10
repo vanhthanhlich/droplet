@@ -1,0 +1,3 @@
+/home/vamh/Projects/droplet/build/CMakeFiles/main.dir
+/home/vamh/Projects/droplet/build/CMakeFiles/edit_cache.dir
+/home/vamh/Projects/droplet/build/CMakeFiles/rebuild_cache.dir

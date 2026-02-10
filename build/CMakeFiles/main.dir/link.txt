@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/main.dir/link.d CMakeFiles/main.dir/src/PointsInCircle.cpp.o CMakeFiles/main.dir/src/main.cpp.o -o main  -lcurses -lform /usr/lib/libboost_context.so.1.89.0
