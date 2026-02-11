@@ -4,7 +4,7 @@
 typedef boost::coroutines2::asymmetric_coroutine<int> coro_t;
 
 const int TARGET_FPS = 24;
-const int RADIUS = 10;
+const int RADIUS = 8;
 std::list<coro_t::pull_type> animations;
 PointsInCircle pic(RADIUS);
 
@@ -25,25 +25,40 @@ void Setup() {
     mouseinterval(20);   
 }
 
+float lerp(float x) {
+    if(x > 1) x = 1;
+    if(x < 0) x = 0;
+
+    if(x <= 0.678) return 1.4 * x * x + 0.3;
+    return 4 * (x - 1) * (x - 1) + 0.5;
+
+}
+
 void Animation(coro_t::push_type& yield, int my, int mx, std::string s = "omaiga") {
-    int time = 0;
-    std::string Gradient = "#&$@%#*+=-:. ";
+    std::string Gradient = " .:-=+*#%@$#";
+    std::vector<int> startPoint(RADIUS + 1, 0);
 
-    for(; time <= RADIUS * Gradient.size(); time++) {
+    assert(startPoint.size() == pic.Points.size());
 
-        for(int i = 0; i < pic.Points.size() - 1; i ++) {
-            int state = time - i;
-            if(state >= Gradient.size()) continue;
-            if(state < 0) break;
+    for(int i = 0; i < startPoint.size(); i ++) {
+        startPoint[i] = lerp((float)i / RADIUS) * (Gradient.size() - 1);
+    }
 
-            char c = Gradient[state];
+    for(int time = 0; time <= Gradient.size() * RADIUS; time ++) {
+
+        for(int i = 0; i < pic.Points.size(); i ++) {
+            if(startPoint[i] < 0) continue;
+            if(i > time) break;
+
+            char c = Gradient[startPoint[i] --];
             for(auto [dx, dy] : pic.Points[i]) {
                 mvprintw(my + dy, mx + dx, "%c", c);
             }
         }
-        
         yield(0);
+
     }
+    
 
 
 }
