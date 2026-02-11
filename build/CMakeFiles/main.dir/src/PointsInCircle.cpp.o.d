@@ -1,7 +1,7 @@
 CMakeFiles/main.dir/src/PointsInCircle.cpp.o: \
  /home/vamh/Projects/droplet/src/PointsInCircle.cpp \
  /usr/include/stdc-predef.h \
- /home/vamh/Projects/droplet/include/PointsInCircle.hpp \
+ /home/vamh/Projects/droplet/header/PointsInCircle.hpp \
  /usr/include/c++/15.2.1/vector \
  /usr/include/c++/15.2.1/bits/requires_hosted.h \
  /usr/include/c++/15.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

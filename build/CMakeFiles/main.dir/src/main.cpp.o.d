@@ -1,5 +1,6 @@
 CMakeFiles/main.dir/src/main.cpp.o: \
  /home/vamh/Projects/droplet/src/main.cpp /usr/include/stdc-predef.h \
+ /home/vamh/Projects/droplet/header/projectsetting.hpp \
  /usr/include/curses.h /usr/include/ncurses_dll.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/include/stdint.h \
  /usr/include/stdint.h /usr/include/bits/libc-header-start.h \
@@ -346,4 +347,4 @@ CMakeFiles/main.dir/src/main.cpp.o: \
  /usr/include/c++/15.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/15.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/15.2.1/tr1/riemann_zeta.tcc \
- /home/vamh/Projects/droplet/include/PointsInCircle.hpp
+ /home/vamh/Projects/droplet/header/PointsInCircle.hpp

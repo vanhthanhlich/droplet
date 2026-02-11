@@ -1,12 +1,4 @@
-#include <ncurses.h>
-#include <stdlib.h>
-#include <chrono>
-#include <thread>
-#include <string>
-#include <list>
-#include <boost/coroutine2/all.hpp>
-#include <algorithm>
-#include "PointsInCircle.hpp"
+#include <projectsetting.hpp>
 
 #define SLEEP(x) std::this_thread::sleep_for(std::chrono::milliseconds(x))
 typedef boost::coroutines2::asymmetric_coroutine<int> coro_t;

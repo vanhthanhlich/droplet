@@ -3,7 +3,7 @@
 
 CMakeFiles/main.dir/src/PointsInCircle.cpp.o
  /home/vamh/Projects/droplet/src/PointsInCircle.cpp
- /home/vamh/Projects/droplet/include/PointsInCircle.hpp
+ /home/vamh/Projects/droplet/header/PointsInCircle.hpp
  /usr/include/alloca.h
  /usr/include/bits/atomic_wide_counter.h
  /usr/include/bits/byteswap.h
@@ -135,7 +135,8 @@ CMakeFiles/main.dir/src/PointsInCircle.cpp.o
 
 CMakeFiles/main.dir/src/main.cpp.o
  /home/vamh/Projects/droplet/src/main.cpp
- /home/vamh/Projects/droplet/include/PointsInCircle.hpp
+ /home/vamh/Projects/droplet/header/PointsInCircle.hpp
+ /home/vamh/Projects/droplet/header/projectsetting.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = -DBOOST_CONTEXT_DYN_LINK -DBOOST_CONTEXT_NO_LIB
 
-CXX_INCLUDES = -I/home/vamh/Projects/droplet/include
+CXX_INCLUDES = -I/home/vamh/Projects/droplet/header
 
 CXX_FLAGS = -std=gnu++23
 
