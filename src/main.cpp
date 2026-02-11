@@ -8,6 +8,11 @@ const int RADIUS = 8;
 std::list<coro_t::pull_type> animations;
 PointsInCircle pic(RADIUS);
 
+#define BLUE_PAIR 8
+#define YELLOW_PAIR 9
+#define GREEN_PAIR 10
+#define WHITE_PAIR 11
+
 void Setup() {
     srand(time(NULL));
 
@@ -22,7 +27,14 @@ void Setup() {
     mmask_t mask = BUTTON1_CLICKED, _;
     mousemask(mask, &_);
 
-    mouseinterval(20);   
+    mouseinterval(20);  
+    
+    start_color();
+    init_pair(BLUE_PAIR, COLOR_BLUE, COLOR_BLACK);  
+    init_pair(YELLOW_PAIR, COLOR_YELLOW, COLOR_BLACK);  
+    init_pair(GREEN_PAIR, COLOR_GREEN, COLOR_BLACK);  
+    init_pair(WHITE_PAIR, COLOR_WHITE, COLOR_BLACK);  
+    
 }
 
 float lerp(float x) {
@@ -88,10 +100,35 @@ int input_handling() {
     return 0;
 }
 
+int arg_handling(int argc, char *argv[]) {
+    std::vector<std::string> args(argv, argv + argc);
+    for(int i = 1; i < args.size(); i ++) {
+        
+        if(args[i] == "-h" || args[i] == "--hel[]") {
+            printf("Usage: %s [optinal] -C color\n", argv[0]);
+            return -1;
+        }
+        else if(args[i] == "-C" && i + 1 < args.size()) {
+            short color_pair = WHITE_PAIR;
+            
+            if(args[i + 1] == "blue") color_pair = BLUE_PAIR;
+            else if(args[i + 1] == "yellow") color_pair = YELLOW_PAIR;
+            else if(args[i + 1] == "green") color_pair = GREEN_PAIR;
 
-int main(int argc, char **argv) {
+            attron(COLOR_PAIR(color_pair));
+        }
+
+    }
+    return 0;
+}
+
+int main(int argc, char *argv[]) {
 
     Setup();
+    if(arg_handling(argc, argv) == -1) {
+        endwin();
+        return 0;
+    }
 
     int running = 1;
     while(running) {
@@ -103,7 +140,6 @@ int main(int argc, char **argv) {
             else it ++;
         }
         
-        // fprintf(stderr, "%d\n", animations.size());
         refresh();
         SLEEP(1000 / TARGET_FPS);
     }
